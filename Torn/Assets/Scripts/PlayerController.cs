@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+
 namespace TarodevController
 {
     /// <summary>
@@ -16,9 +17,11 @@ namespace TarodevController
         [SerializeField] private ScriptableStats _stats;
         private Rigidbody2D _rb;
         private CapsuleCollider2D _col;
+        private IInteractable _currentInteractable;
         private FrameInput _frameInput;
         private Vector2 _frameVelocity;
         private bool _cachedQueryStartInColliders;
+        private bool _canInteract;
 
         #region Interface
 
@@ -42,6 +45,30 @@ namespace TarodevController
         {
             _time += Time.deltaTime;
             GatherInput();
+            
+            if (_canInteract && Input.GetKeyDown(KeyCode.E))
+            {
+                // Perform interaction
+                _currentInteractable?.Interact();
+            }
+        }
+        
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Interactable"))
+            {
+                _canInteract = true;
+                _currentInteractable = other.gameObject.GetComponent<IInteractable>();
+            }
+        }
+        
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("Interactable"))
+            {
+                _canInteract = false;
+                _currentInteractable = null;
+            }
         }
 
         private void GatherInput()
