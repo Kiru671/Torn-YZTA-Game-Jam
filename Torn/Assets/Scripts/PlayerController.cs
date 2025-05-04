@@ -48,7 +48,6 @@ namespace TarodevController
             
             if (_canInteract && Input.GetKeyDown(KeyCode.E))
             {
-                // Perform interaction
                 _currentInteractable?.Interact();
             }
         }
