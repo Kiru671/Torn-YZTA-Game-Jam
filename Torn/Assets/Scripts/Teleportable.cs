@@ -3,10 +3,18 @@ using UnityEngine;
 
 public class Teleportable : MonoBehaviour
 {
+    private Mirror[] mirrors;
     private void Start()
     {
-        FindAnyObjectByType<Mirror>().OnMirrorActivated += Teleport;
+        mirrors = FindObjectsByType<Mirror>(
+            FindObjectsSortMode.None);
+
+        foreach (var mirror in mirrors)
+        {
+            mirror.OnMirrorActivated += Teleport;
+        }
     }
+    
 
     private void Teleport()
     {
