@@ -64,6 +64,8 @@ namespace TarodevController
             HandleIdleSpeed();
 
             HandleCharacterTilt();
+            
+            _anim.SetBool(Moving , _player.FrameInput.x != 0);
         }
 
         private void HandleSpriteFlip()
@@ -139,5 +141,6 @@ namespace TarodevController
         private static readonly int GroundedKey = Animator.StringToHash("Grounded");
         private static readonly int IdleSpeedKey = Animator.StringToHash("IdleSpeed");
         private static readonly int JumpKey = Animator.StringToHash("Jump");
+        private static readonly int Moving = Animator.StringToHash("Moving");
     }
 }
