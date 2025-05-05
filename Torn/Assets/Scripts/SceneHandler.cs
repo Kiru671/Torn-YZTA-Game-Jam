@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneHandler
+public class SceneHandler: MonoBehaviour
 {
     void Start()
     {
@@ -13,6 +13,7 @@ public class SceneHandler
             trigger.OnLevelCompleted += LoadNextScene;
         }
     }
+    
     
     void Update()
     {
