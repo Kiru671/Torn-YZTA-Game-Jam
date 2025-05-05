@@ -385,6 +385,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1016065182 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 77909493448126292, guid: b4559604eb2d9bf49a86d3704f24d802, type: 3}
+  m_PrefabInstance: {fileID: 9090707712443021278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ea34782bdbe5424c95d46ca0c2c175d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1149609253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,6 +1039,14 @@ PrefabInstance:
     - target: {fileID: 1451407574184538311, guid: b4559604eb2d9bf49a86d3704f24d802, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659862596071682344, guid: b4559604eb2d9bf49a86d3704f24d802, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1016065182}
+    - target: {fileID: 4659862596071682344, guid: b4559604eb2d9bf49a86d3704f24d802, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartGame
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
