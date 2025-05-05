@@ -22,6 +22,7 @@ public class SceneHandler: MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+
     
     private void LoadNextScene()
     {
