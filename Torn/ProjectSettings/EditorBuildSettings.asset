@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Dilara.Workspace/Level 3.unity
     guid: 33fc3fa10c742704c8d1f0d501f55723
-  - enabled: 1
+  - enabled: 0
     path: Assets/level3.unity
     guid: 6167768f9534aea49bf9e982445193ed
   - enabled: 1

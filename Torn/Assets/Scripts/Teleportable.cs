@@ -15,7 +15,6 @@ public class Teleportable : MonoBehaviour
         }
     }
     
-
     private void Teleport()
     {
         var position = transform.position;
