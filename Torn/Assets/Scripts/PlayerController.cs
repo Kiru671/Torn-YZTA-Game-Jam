@@ -59,6 +59,26 @@ namespace TarodevController
                 _canInteract = true;
                 _currentInteractable = other.gameObject.GetComponent<IInteractable>();
             }
+            else if(other.gameObject.CompareTag("Hazard"))
+            {
+                _rb.linearVelocity = Vector2.zero;
+                _rb.simulated = false;
+                _rb.isKinematic = true;
+                
+                Respawn();
+            }
+        }
+
+        private void Respawn()
+        {
+            GameObject respawnPoint = GameObject.FindGameObjectWithTag("Respawn");
+            
+            if (respawnPoint != null)
+            {
+                transform.position = respawnPoint.transform.position;
+                _rb.simulated = true;
+                _rb.isKinematic = false;
+            }
         }
         
         private void OnTriggerExit2D(Collider2D other)

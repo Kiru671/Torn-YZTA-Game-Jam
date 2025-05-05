@@ -7,6 +7,7 @@ public class Mirror : MonoBehaviour, IInteractable
     [SerializeField] private GameObject interactableObject;
     [SerializeField] private Volume mirrorVolume;
     [SerializeField] private Volume defaultVolume;
+    private GameObject[] hazard;
     
     public event Action OnMirrorActivated;
 
@@ -18,10 +19,17 @@ public class Mirror : MonoBehaviour, IInteractable
         defaultVolume = GameObject.Find("Default Volume").GetComponent<Volume>();;
 
         mirrorVolume.enabled = false;
+        
+        hazard = GameObject.FindGameObjectsWithTag("Hazard");
     }
 
     public void Interact()
-    {
+    { 
+        foreach (var h in hazard)
+        {
+            h.SetActive(!h.activeSelf);
+        }
+        
         if (mirrorVolume.enabled)
         {
             mirrorVolume.enabled = false;
@@ -32,6 +40,7 @@ public class Mirror : MonoBehaviour, IInteractable
             mirrorVolume.enabled = true;
             defaultVolume.enabled = false;
         }
+        
         OnMirrorActivated?.Invoke();
     }
 
